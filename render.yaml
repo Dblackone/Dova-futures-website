@@ -1,0 +1,53 @@
+# Render Blueprint for the Dova Futures Preorder platform.
+#
+# Deploy: Render dashboard -> New -> Blueprint -> select this repo.
+# Render reads this file and pre-fills the service config below; you only
+# need to fill in the secret env vars marked `sync: false` in the dashboard.
+#
+# NOTE on the free plan: Render's free instance type does NOT support
+# persistent disks. That means the SQLite database (preorder.db) and any
+# uploaded product images are wiped on every redeploy (they survive sleep/
+# wake between deploys, just not a fresh deploy). This is fine for testing
+# and even for running a single preorder batch, as long as you avoid pushing
+# new code while orders are live.
+#
+# To add real persistence later, upgrade `plan` below to `starter` and
+# uncomment the `disk` block + the PREORDER_DB_PATH / UPLOAD_DIR env vars
+# that point into it. The app already supports both via env vars.
+services:
+  - type: web
+    name: dova-preorder
+    runtime: node
+    plan: free
+    region: oregon
+    rootDir: dova-preorder
+    buildCommand: npm install
+    startCommand: node server.js
+    autoDeploy: true
+    # disk:
+    #   name: dova-preorder-data
+    #   mountPath: /opt/render/project/src/dova-preorder/data
+    #   sizeGB: 1
+    envVars:
+      # - key: PREORDER_DB_PATH
+      #   value: /opt/render/project/src/dova-preorder/data/preorder.db
+      # - key: UPLOAD_DIR
+      #   value: /opt/render/project/src/dova-preorder/data/uploads
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: PAYSTACK_SECRET_KEY
+        sync: false
+      - key: PAYSTACK_PUBLIC_KEY
+        sync: false
+      - key: APP_URL
+        sync: false
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: SMTP_FROM
+        sync: false
