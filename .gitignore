@@ -5,3 +5,6 @@ node_modules/
 data/*.db
 data/uploads/
 npm-debug.log*
+.hallmark/
+playwright-report/
+test-results/

@@ -1,0 +1,87 @@
+/* Hallmark · design system: Dova field journal · genre: editorial */
+:root {
+  --color-paper: oklch(96% 0.012 78);
+  --color-paper-2: oklch(91% 0.016 78);
+  --color-paper-3: oklch(86% 0.018 74);
+  --color-ink: oklch(20% 0.025 156);
+  --color-ink-2: oklch(32% 0.028 154);
+  --color-muted: oklch(43% 0.018 105);
+  --color-rule: oklch(72% 0.018 76);
+  --color-rule-dark: oklch(39% 0.025 153);
+  --color-accent: oklch(49% 0.145 38);
+  --color-accent-strong: oklch(40% 0.13 36);
+  --color-accent-ink: oklch(97% 0.01 78);
+  --color-focus: oklch(42% 0.15 38);
+  --color-success: oklch(42% 0.09 154);
+  --color-error: oklch(46% 0.16 27);
+  --color-shadow: oklch(12% 0.02 154 / 0.24);
+
+  --font-display: "Newsreader", ui-serif, serif;
+  --font-body: "IBM Plex Sans", ui-sans-serif, sans-serif;
+  --font-outlier: "IBM Plex Mono", ui-monospace, monospace;
+
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4.5rem;
+  --space-3xl: 7rem;
+  --space-4xl: 10rem;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.25rem;
+  --text-lg: 1.5625rem;
+  --text-xl: 1.953rem;
+  --text-2xl: 2.441rem;
+  --text-3xl: 3.052rem;
+  --text-4xl: 3.815rem;
+  --text-display-s: clamp(2.75rem, 5vw, 4.75rem);
+  --text-display: clamp(3rem, 6vw, 5.25rem);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.32, 0, 0.67, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-short: 140ms;
+  --dur-medium: 220ms;
+  --dur-long: 520ms;
+
+  --rule-hair: 1px;
+  --radius-card: 0;
+  --radius-input: 0;
+  --radius-pill: 999px;
+  --page-gutter: clamp(1rem, 4vw, 3.5rem);
+  --page-max: 90rem;
+
+  /* Compatibility aliases for the existing single-file site. */
+  --green-950: var(--color-ink);
+  --green-900: var(--color-ink-2);
+  --green-800: var(--color-ink-2);
+  --green-700: var(--color-ink-2);
+  --green-600: var(--color-success);
+  --green-500: var(--color-success);
+  --green-300: var(--color-paper-3);
+  --green-100: var(--color-paper-2);
+  --cream: var(--color-paper);
+  --sand: var(--color-paper-2);
+  --stone: var(--color-rule);
+  --ash: var(--color-rule);
+  --ink: var(--color-ink);
+  --slate: var(--color-muted);
+  --muted: var(--color-muted);
+  --white: var(--color-paper);
+  --clay: var(--color-accent);
+  --clay-dark: var(--color-accent-strong);
+  --clay-100: var(--color-paper-2);
+  --display: var(--font-display);
+  --body: var(--font-body);
+  --ease: var(--ease-out);
+  --line: var(--color-rule-dark);
+  --max: var(--page-max);
+  --pad: var(--page-gutter);
+  --section: clamp(var(--space-2xl), 9vw, var(--space-4xl));
+}

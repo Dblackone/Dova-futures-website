@@ -6,7 +6,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "test": "playwright test"
   },
   "dependencies": {
     "docx": "^9.7.1",
@@ -14,5 +15,8 @@
     "express": "^4.21.2",
     "nodemailer": "^6.9.16",
     "sharp": "^0.35.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1"
   }
 }
