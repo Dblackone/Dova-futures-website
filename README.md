@@ -6,6 +6,12 @@ deliver project enquiries through SMTP.
 
 ## Architecture
 
+- `index.html` — the public website and client-side navigation
+- `vollmann/` — Vollmann Akarakiri's shareable digital card, vCard and portfolio links
+- `assets/` — logos, project imagery, icons and portfolio documents
+- `data/` — portfolio data used by the website
+- `server.js` — optional Express server for local hosting and contact email
+- `CNAME` — custom domain for GitHub Pages (`dovafutures.com`)
 - `index.html` — public website and client-side navigation
 - `assets/optimized/` — compressed WebP images used by the website
 - `assets/` — original project media and company documents
