@@ -6,6 +6,7 @@ HTML/CSS/JS single-page site with an optional Express contact-form backend.
 ## What is here
 
 - `index.html` — the public website and client-side navigation
+- `vollmann/` — Vollmann Akarakiri's shareable digital card, vCard and portfolio links
 - `assets/` — logos, project imagery, icons and portfolio documents
 - `data/` — portfolio data used by the website
 - `server.js` — optional Express server for local hosting and contact email
