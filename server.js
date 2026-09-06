@@ -296,6 +296,27 @@ function createApp(options = {}) {
     }),
   );
 
+  app.get("/tokens.css", (_req, res) => {
+    res.set("Cache-Control", "public, max-age=2592000");
+    return res.sendFile(path.join(ROOT_DIR, "tokens.css"));
+  });
+
+  app.get(["/vollmann", "/vollmann/"], (_req, res) => {
+    res.set("Cache-Control", "no-cache");
+    return res.sendFile(path.join(ROOT_DIR, "vollmann", "index.html"));
+  });
+
+  app.use(
+    "/vollmann",
+    express.static(path.join(ROOT_DIR, "vollmann"), {
+      dotfiles: "deny",
+      etag: true,
+      fallthrough: false,
+      index: false,
+      maxAge: "30d",
+    }),
+  );
+
   app.use("/api", (_req, res) => {
     res
       .status(404)
