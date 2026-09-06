@@ -1,9 +1,10 @@
 # Dova Futures website
 
-The standalone marketing website for DOVA Futures Limited. It is a vanilla
-HTML/CSS/JS single-page site with an optional Express contact-form backend.
+The production marketing website for DOVA Futures Limited. It uses a small
+Express application to serve the responsive HTML/CSS/JavaScript frontend and
+deliver project enquiries through SMTP.
 
-## What is here
+## Architecture
 
 - `index.html` — the public website and client-side navigation
 - `vollmann/` — Vollmann Akarakiri's shareable digital card, vCard and portfolio links
@@ -11,24 +12,44 @@ HTML/CSS/JS single-page site with an optional Express contact-form backend.
 - `data/` — portfolio data used by the website
 - `server.js` — optional Express server for local hosting and contact email
 - `CNAME` — custom domain for GitHub Pages (`dovafutures.com`)
+- `index.html` — public website and client-side navigation
+- `assets/optimized/` — compressed WebP images used by the website
+- `assets/` — original project media and company documents
+- `server.js` — static delivery, health check, and secured contact API
+- `server.test.js` — backend unit and integration tests
+- `site-audit.spec.js` — responsive browser and performance regression tests
+- `render.yaml` — Render web-service infrastructure configuration
+- `DEPLOYMENT.md` — production deployment, DNS, email, and rollback runbook
 
-The preorder store is maintained in its own repository and is not part of this
-website repository.
+The frontend and API intentionally run on the same origin. This keeps the
+contact form simple, avoids cross-origin configuration, and lets one Render
+service own TLS, security headers, compression, and caching.
 
-## Run locally
+## Local development
 
 ```bash
-npm install
+npm ci
 cp .env.example .env
 npm start
 ```
 
-Open `http://localhost:3000`. The static frontend can also be previewed with
-any static file server. Contact email delivery requires the SMTP variables in
-`.env`; no credentials belong in Git.
+Open `http://localhost:3000`. SMTP credentials are only required to deliver a
+real contact message. Never commit `.env` or credentials.
+
+## Quality checks
+
+```bash
+npm test
+npm audit
+npm run format:check
+```
+
+The browser suite checks seven site views at mobile, tablet, and desktop
+widths. It also verifies image loading, the contact API contract, source-file
+isolation, and a 4 MB image-transfer budget.
 
 ## Deployment
 
-The GitHub Pages workflow publishes the repository root. The Express backend
-is a separate runtime concern and must be hosted where Node.js and SMTP
-environment variables are available.
+Production is designed to run as one Render web service. Render waits for the
+GitHub validation workflow to pass before deploying. Follow `DEPLOYMENT.md`
+for the SMTP variables and the controlled Namecheap DNS migration.
