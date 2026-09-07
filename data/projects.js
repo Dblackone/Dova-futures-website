@@ -1,92 +1,211 @@
 /**
- * Project data configuration.
- * To add real images: drop photos into /assets/projects/<project-id>/
- * then update coverImage and gallery paths below.
- *
- * Image slots for future upload:
- *   /assets/projects/<id>/cover.jpg
- *   /assets/projects/<id>/gallery-01.jpg
- *   /assets/projects/<id>/gallery-02.jpg
- *   /assets/projects/<id>/gallery-03.jpg
+ * Dova Futures portfolio catalogue. Keep project facts here so the grid and
+ * detail views always use the same source of truth.
  */
-
 const PROJECTS = [
   {
-    id: 'body-shop-ikeja',
-    title: 'The Body Shop Retail Fit-Out',
-    category: 'commercial',
-    location: 'Ikeja City Mall, Lagos',
-    coverImage: '/assets/projects/body-shop.jpg',
-    gallery: []
+    id: "body-shop-ikeja",
+    title: "The Body Shop Retail Fit-Out",
+    category: "commercial",
+    location: "Ikeja City Mall, Lagos",
+    services: ["Retail Fit-Out"],
+    deliveryType: "Fit-Out Delivery",
+    status: "Completed",
+    featured: true,
+    summary:
+      "A retail fit-out for The Body Shop at Ikeja City Mall, delivered with the brand experience and store operation in view.",
+    scope: ["Retail fit-out", "Interior finishes", "Store delivery"],
+    coverImage: "assets/optimized/body-shop.webp",
+    gallery: [
+      "assets/Project Pictures/Body Shop Outlets/body-shop-retail-floor.jpeg",
+      "assets/Project Pictures/Body Shop Outlets/body-shop-mural-display.jpeg",
+      "assets/Project Pictures/Body Shop Outlets/body-shop-counter-display.jpeg",
+    ],
   },
   {
-    id: 'palm-oil-drainage',
-    title: 'Palm Oil Drainage Infrastructure',
-    category: 'infrastructure',
-    location: 'Akure, Ondo State',
-    coverImage: '/assets/projects/palm-oil-drainage.jpg',
-    gallery: []
+    id: "body-shop-sekumo",
+    title: "The Body Shop Retail Fit-Out — Sekumo",
+    category: "commercial",
+    location: "Sekumo, Ogun State",
+    services: ["Retail Fit-Out"],
+    deliveryType: "Fit-Out Delivery",
+    status: "Completed",
+    featured: true,
+    summary:
+      "A separate The Body Shop retail fit-out project in Sekumo. Project-specific photography will be added as it is confirmed.",
+    scope: ["Retail fit-out", "Interior finishes", "Store delivery"],
+    coverImage: "assets/optimized/body-shop.webp",
+    gallery: [],
   },
   {
-    id: 'residential-duplex',
-    title: 'Residential Duplex Development',
-    category: 'residential',
-    location: 'Lagos, Nigeria',
-    coverImage: '/assets/projects/residential-duplex.jpg',
-    gallery: []
+    id: "ngo-complex-landscape",
+    title: "NGO Complex Landscape Development",
+    category: "landscape",
+    location: "Owo, Ondo State",
+    services: ["Landscape Design", "Landscape Implementation"],
+    deliveryType: "Design + Implementation",
+    status: "Completed",
+    featured: true,
+    summary:
+      "Landscape design and implementation for an existing charity organisation complex in Owo.",
+    scope: [
+      "Site assessment",
+      "Landscape concept",
+      "Softscape and hardscape planning",
+      "Landscape implementation",
+    ],
+    coverImage: "assets/optimized/palm-drainage.webp",
+    gallery: [],
   },
   {
-    id: 'interior-renovation',
-    title: 'Interior Renovation Project',
-    category: 'interiors',
-    location: 'Ekiti & Lagos States',
-    coverImage: '/assets/projects/interior-renovation.jpg',
-    gallery: []
+    id: "ikotun-6-flat-apartment",
+    title: "Ikotun 6-Flat Apartment",
+    category: "residential",
+    location: "Ikotun, Lagos, Nigeria",
+    services: ["Architectural Design", "Construction"],
+    deliveryType: "Design + Build",
+    status: "Carcass Completed",
+    featured: true,
+    summary:
+      "A six-unit residential apartment development delivered from initial design development through construction to carcass completion.",
+    scope: [
+      "Concept and design development",
+      "Setting out",
+      "Structural works",
+      "Blockwork",
+      "Roofing",
+      "Carcass delivery",
+    ],
+    coverImage: "assets/optimized/ikotun-apartments.webp",
+    gallery: [
+      "assets/Project Pictures/Ikotun Apartments/ikotun-render.png",
+      "assets/Project Pictures/Ikotun Apartments/ikotun-structure.jpg",
+      "assets/Project Pictures/Ikotun Apartments/ikotun-progress.jpg",
+      "assets/Project Pictures/Ikotun Apartments/ikotun-facade.jpg",
+    ],
   },
   {
-    id: 'residential-estate',
-    title: 'Residential Estate Build',
-    category: 'residential',
-    location: 'Port Harcourt',
-    coverImage: '/assets/projects/residential-duplex.jpg',
-    gallery: []
+    id: "ikeja-conference-room",
+    title: "Ikeja Conference Room Design",
+    category: "interiors",
+    location: "Ikeja, Lagos",
+    services: ["Interior Design", "Concept Development"],
+    deliveryType: "Design Only",
+    status: "Design Proposal",
+    featured: false,
+    summary:
+      "An interior design concept for a conference room in Ikeja; this was not a Dova construction or fit-out delivery.",
+    scope: [
+      "Layout concept",
+      "Design intent",
+      "Material proposal",
+      "Visualisation",
+    ],
+    coverImage: "assets/optimized/conference-room.webp",
+    gallery: [],
   },
   {
-    id: 'commercial-fitout',
-    title: 'Commercial Fit-Out Program',
-    category: 'commercial',
-    location: 'Lagos Mainland',
-    coverImage: '/assets/projects/body-shop.jpg',
-    gallery: []
+    id: "ado-ekiti-hall-of-worship",
+    title: "Ado-Ekiti Hall of Worship",
+    category: "commercial",
+    location: "Ado-Ekiti, Ekiti State",
+    services: ["Design", "Construction"],
+    deliveryType: "Design + Build",
+    status: "Completed",
+    featured: false,
+    summary:
+      "A hall of worship project in Ado-Ekiti, presented as a commercial and institutional-scale commission.",
+    scope: ["Architectural planning", "Project delivery"],
+    coverImage: "assets/optimized/ado-hall.webp",
+    gallery: [
+      "assets/projects/ado-hall/before.jpg",
+      "assets/projects/ado-hall/after.png",
+    ],
   },
   {
-    id: 'drainage-phase-2',
-    title: 'Drainage Upgrade Phase II',
-    category: 'infrastructure',
-    location: 'Southwest Nigeria',
-    coverImage: '/assets/projects/palm-oil-drainage.jpg',
-    gallery: []
+    id: "owo-mini-estate-event-centre",
+    title: "Owo Mini Estate & Event Centre",
+    category: "residential",
+    location: "Owo, Ondo State",
+    services: ["Architectural Design", "Masterplanning"],
+    deliveryType: "Design Only",
+    status: "Design Concept",
+    featured: false,
+    summary:
+      "Design of a mini residential estate and event centre, including the overall site concept and associated architectural planning.",
+    scope: [
+      "Masterplanning",
+      "Architectural design",
+      "Site development concept",
+    ],
+    coverImage: "assets/optimized/estate-aerial.webp",
+    gallery: [],
   },
   {
-    id: 'premium-office-interiors',
-    title: 'Premium Office Interiors',
-    category: 'interiors',
-    location: 'Victoria Island, Lagos',
-    coverImage: '/assets/projects/interior-renovation.jpg',
-    gallery: []
+    id: "premium-residential-interior",
+    title: "Premium Residential Interior",
+    category: "interiors",
+    location: "Lagos, Nigeria",
+    services: ["Interior Design", "Interior Delivery"],
+    deliveryType: "Interior Delivery",
+    status: "Completed",
+    featured: false,
+    summary:
+      "A single-family residence interior with a material-led, considered approach to the finished space.",
+    scope: ["Interior design", "Finishes", "Furniture and styling"],
+    coverImage: "assets/optimized/living-space.webp",
+    gallery: [],
   },
   {
-    id: 'multi-unit-residential',
-    title: 'Multi-Unit Residential Complex',
-    category: 'residential',
-    location: 'Lekki, Lagos',
-    coverImage: '/assets/projects/residential-duplex.jpg',
-    gallery: []
-  }
+    id: "interior-concept-development",
+    title: "Interior Concept Development",
+    category: "interiors",
+    location: "Nigeria",
+    services: ["Interior Design", "Concept Development"],
+    deliveryType: "Design Only",
+    status: "Design Concept",
+    featured: false,
+    summary:
+      "An interior concept project, clearly presented as design work rather than a completed construction delivery.",
+    scope: ["Space planning", "Design concept", "Material direction"],
+    coverImage: "assets/optimized/hero-hillside.webp",
+    gallery: [],
+  },
+  {
+    id: "alko-home-yaba",
+    title: "Alko Home — Residential Interior",
+    category: "interiors",
+    location: "Yaba, Lagos",
+    services: ["Residential Interior Design"],
+    deliveryType: "Interior Design",
+    status: "Project Confirmed",
+    featured: true,
+    summary:
+      "A residential apartment interior project in Yaba. Project-specific photography will be added when it is available.",
+    scope: ["Residential interior design", "Interior development"],
+    coverImage: "assets/optimized/living-space.webp",
+    gallery: [],
+  },
+  {
+    id: "sapele-road-residential-interiors",
+    title: "Sapele Road Residential Interiors",
+    category: "interiors",
+    location: "Sapele Road, Nigeria",
+    services: ["Interior Delivery", "Exterior Development", "Landscaping"],
+    deliveryType: "Interior + Exterior Delivery",
+    status: "Completed",
+    featured: true,
+    summary:
+      "Two residential apartment commissions: one interior transformation from tiling through furniture, and one interior, exterior and landscape development.",
+    scope: [
+      "Residence A: tiling, finishes and furniture",
+      "Residence B: interior, exterior and landscape development",
+    ],
+    coverImage: "assets/optimized/living-space.webp",
+    gallery: [],
+  },
 ];
 
-// Hero / About preview image pool — update when real project photos are added
-const HERO_IMAGES = PROJECTS
-  .filter(p => p.coverImage)
-  .map(p => p.coverImage)
-  .filter((v, i, a) => a.indexOf(v) === i);
+const HERO_IMAGES = PROJECTS.map((project) => project.coverImage).filter(
+  (value, index, all) => all.indexOf(value) === index,
+);

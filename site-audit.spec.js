@@ -110,6 +110,48 @@ test("all rendered image sources load within the asset budget", async ({
   expect(imageTransferBytes).toBeLessThan(4 * 1024 * 1024);
 });
 
+test("project catalogue filters and opens a direct detail view", async ({
+  page,
+}) => {
+  await page.goto(BASE_URL, { waitUntil: "networkidle" });
+  await page.evaluate(() => navigateTo("projects"));
+
+  await expect(
+    page.getByRole("link", { name: /View Ikotun 6-Flat Apartment/i }),
+  ).toBeVisible();
+  await expect(
+    page.getByText("NGO Complex Landscape Development", { exact: true }),
+  ).toBeVisible();
+
+  await page.getByRole("button", { name: "Landscape" }).click();
+  await expect(
+    page.locator('.project-item[data-category="landscape"]'),
+  ).toBeVisible();
+  await expect(
+    page.locator('.project-item[data-category="commercial"]').first(),
+  ).toBeHidden();
+
+  await page.getByRole("button", { name: "All work" }).click();
+  await page
+    .getByRole("link", { name: /View Ikotun 6-Flat Apartment/i })
+    .click();
+  await expect(page.locator("#projectDetail")).toBeVisible();
+  await expect(page.locator("#projectDetail")).toContainText(
+    "Carcass Completed",
+  );
+  await expect(page).toHaveURL(/\?project=ikotun-6-flat-apartment$/);
+
+  await page.goto(`${BASE_URL}/?project=body-shop-ikeja`, {
+    waitUntil: "networkidle",
+  });
+  await expect(page.locator("#projectDetail")).toContainText(
+    "The Body Shop Retail Fit-Out",
+  );
+  await expect(page.locator("#projectDetail .project-gallery img")).toHaveCount(
+    3,
+  );
+});
+
 test("contact form uses the backend contract and reports success", async ({
   page,
 }) => {

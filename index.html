@@ -982,9 +982,16 @@
       }
       .project-card {
         position: relative;
+        display: block;
         min-height: 420px;
         overflow: hidden;
         background: var(--green-800);
+        color: inherit;
+        text-decoration: none;
+      }
+      .project-card:focus-visible {
+        outline: 2px solid var(--cream);
+        outline-offset: 4px;
       }
       .project-card img {
         position: absolute;
@@ -1020,6 +1027,76 @@
         font-size: 11px;
         letter-spacing: 0.08em;
         text-transform: uppercase;
+      }
+      .project-detail {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+        gap: 32px;
+        margin-top: 40px;
+        padding-top: 40px;
+        border-top: 1px solid var(--line);
+      }
+      .project-detail[hidden] {
+        display: none;
+      }
+      .project-detail-media img {
+        width: 100%;
+        height: 100%;
+        min-height: 420px;
+        object-fit: cover;
+      }
+      .project-detail-copy {
+        max-width: 560px;
+      }
+      .project-detail-copy h2 {
+        margin-top: 14px;
+        font-family: var(--display);
+        font-size: clamp(42px, 6vw, 78px);
+        line-height: 0.88;
+        font-weight: 400;
+      }
+      .project-detail-copy > p {
+        margin-top: 20px;
+        color: rgba(245, 239, 232, 0.72);
+        line-height: 1.7;
+      }
+      .project-meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        margin: 28px 0;
+      }
+      .project-meta div {
+        border-top: 1px solid var(--line);
+        padding-top: 10px;
+      }
+      .project-meta dt {
+        color: var(--clay);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .project-meta dd {
+        margin: 6px 0 0;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+      .project-scope {
+        padding-left: 18px;
+        color: rgba(245, 239, 232, 0.72);
+        line-height: 1.7;
+      }
+      .project-gallery {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+      .project-gallery img {
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
       }
       .process-detail {
         background: var(--cream);
@@ -1418,6 +1495,15 @@
         }
         .project-card {
           min-height: 410px;
+        }
+        .project-detail {
+          grid-template-columns: 1fr;
+        }
+        .project-detail-media img {
+          min-height: 300px;
+        }
+        .project-gallery {
+          grid-template-columns: 1fr;
         }
         .detailed-steps {
           grid-template-columns: 1fr;
@@ -2237,6 +2323,12 @@
               ><button
                 class="filter project-filter"
                 type="button"
+                data-filter="landscape"
+              >
+                Landscape</button
+              ><button
+                class="filter project-filter"
+                type="button"
                 data-filter="interiors"
               >
                 Interiors
@@ -2872,6 +2964,7 @@
       </footer></template
     >
 
+    <script src="data/projects.js"></script>
     <script>
       const defaultConfig = {
         company_name: "Dova Futures Developers",
@@ -2940,6 +3033,93 @@
           .replace(/-/g, " ")}`;
       }
       setRandomAboutProjectImage();
+      const escapeHtml = (value) =>
+        String(value).replace(
+          /[&<>'"]/g,
+          (character) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              "'": "&#39;",
+              '"': "&quot;",
+            })[character],
+        );
+      const titleCase = (value) =>
+        value.charAt(0).toUpperCase() + value.slice(1);
+      function renderProjects() {
+        const grid = document.getElementById("projectsGrid");
+        if (!grid || !Array.isArray(PROJECTS)) return;
+        grid.innerHTML = PROJECTS.map(
+          (project) => `
+            <a class="project-card project-item" data-category="${escapeHtml(project.category)}" href="?project=${encodeURIComponent(project.id)}" aria-label="View ${escapeHtml(project.title)}">
+              <img src="${escapeHtml(project.coverImage)}" alt="${escapeHtml(project.title)}" decoding="async" loading="lazy" />
+              <span class="project-card-copy">
+                <span class="tag">${escapeHtml(titleCase(project.category))}${project.featured ? " · Featured" : ""}</span>
+                <h3>${escapeHtml(project.title)}</h3>
+                <p>${escapeHtml(project.location)}</p>
+              </span>
+            </a>`,
+        ).join("");
+        grid.addEventListener("click", (event) => {
+          const card = event.target.closest(".project-item");
+          if (!card) return;
+          event.preventDefault();
+          openProject(new URL(card.href).searchParams.get("project"));
+        });
+      }
+      function renderProjectDetail(project) {
+        let detail = document.getElementById("projectDetail");
+        if (!detail) {
+          detail = document.createElement("article");
+          detail.id = "projectDetail";
+          detail.className = "project-detail";
+          document
+            .getElementById("projectsGrid")
+            .insertAdjacentElement("afterend", detail);
+        }
+        const gallery = project.gallery.length
+          ? `<div class="project-gallery">${project.gallery.map((image, index) => `<img src="${escapeHtml(image)}" alt="${escapeHtml(project.title)} — project image ${index + 1}" loading="lazy" decoding="async" />`).join("")}</div>`
+          : "";
+        detail.innerHTML = `
+          <div class="project-detail-media"><img src="${escapeHtml(project.coverImage)}" alt="${escapeHtml(project.title)}" /></div>
+          <div class="project-detail-copy">
+            <span class="eyebrow clay">${escapeHtml(titleCase(project.category))} · ${escapeHtml(project.location)}</span>
+            <h2>${escapeHtml(project.title)}</h2>
+            <p>${escapeHtml(project.summary)}</p>
+            <dl class="project-meta">
+              <div><dt>Delivery</dt><dd>${escapeHtml(project.deliveryType)}</dd></div>
+              <div><dt>Status</dt><dd>${escapeHtml(project.status)}</dd></div>
+              <div><dt>Services</dt><dd>${project.services.map(escapeHtml).join(", ")}</dd></div>
+              <div><dt>Location</dt><dd>${escapeHtml(project.location)}</dd></div>
+            </dl>
+            <h3>Scope of work</h3>
+            <ul class="project-scope">${project.scope.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+            <button class="button cream" type="button" onclick="navigateTo('contact')">Start a project <span aria-hidden="true">↗</span></button>
+          </div>${gallery}`;
+        detail.hidden = false;
+      }
+      function openProject(id, updateUrl = true) {
+        const project = PROJECTS.find((item) => item.id === id);
+        if (!project) return;
+        navigateTo("projects");
+        renderProjectDetail(project);
+        if (updateUrl)
+          history.pushState(
+            { project: id },
+            "",
+            `?project=${encodeURIComponent(id)}`,
+          );
+        document
+          .getElementById("projectDetail")
+          .scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      function closeProjectDetail() {
+        const detail = document.getElementById("projectDetail");
+        if (detail) detail.hidden = true;
+        history.pushState({}, "", window.location.pathname);
+      }
+      renderProjects();
       document.querySelectorAll(".project-filter").forEach((button) =>
         button.addEventListener("click", () => {
           document
@@ -2956,6 +3136,10 @@
           });
         }),
       );
+      const requestedProject = new URLSearchParams(window.location.search).get(
+        "project",
+      );
+      if (requestedProject) openProject(requestedProject, false);
       const CONTACT_API_ENDPOINT = "/api/contact";
       const WHATSAPP_URL = "https://wa.me/2348163675439";
       const IS_STATIC_HOST = window.location.hostname.endsWith(".github.io");
