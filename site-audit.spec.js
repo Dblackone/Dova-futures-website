@@ -145,7 +145,7 @@ test("project catalogue filters and opens a direct detail view", async ({
     waitUntil: "networkidle",
   });
   await expect(page.locator("#projectDetail")).toContainText(
-    "The Body Shop Retail Fit-Out",
+    "The Body Shop Nigeria — Ikeja City Mall",
   );
   await expect(page.locator("#projectDetail .project-gallery img")).toHaveCount(
     3,

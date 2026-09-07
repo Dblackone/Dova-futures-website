@@ -5,7 +5,7 @@
 const PROJECTS = [
   {
     id: "body-shop-ikeja",
-    title: "The Body Shop Retail Fit-Out",
+    title: "The Body Shop Nigeria — Ikeja City Mall",
     category: "commercial",
     location: "Ikeja City Mall, Lagos",
     services: ["Retail Fit-Out"],
@@ -13,7 +13,7 @@ const PROJECTS = [
     status: "Completed",
     featured: true,
     summary:
-      "A retail fit-out for The Body Shop at Ikeja City Mall, delivered with the brand experience and store operation in view.",
+      "A retail fit-out for The Body Shop Nigeria at Ikeja City Mall, delivered with the brand experience and store operation in view.",
     scope: ["Retail fit-out", "Interior finishes", "Store delivery"],
     coverImage: "assets/optimized/body-shop.webp",
     gallery: [
@@ -23,16 +23,16 @@ const PROJECTS = [
     ],
   },
   {
-    id: "body-shop-sekumo",
-    title: "The Body Shop Retail Fit-Out — Sekumo",
+    id: "body-shop-seku-mall",
+    title: "The Body Shop Nigeria — Seku Mall",
     category: "commercial",
-    location: "Sekumo, Ogun State",
+    location: "Seku Mall, Lekki, Lagos",
     services: ["Retail Fit-Out"],
     deliveryType: "Fit-Out Delivery",
     status: "Completed",
     featured: true,
     summary:
-      "A separate The Body Shop retail fit-out project in Sekumo. Project-specific photography will be added as it is confirmed.",
+      "A separate The Body Shop Nigeria retail fit-out at Seku Mall, Lekki. Project-specific photography will be added as it is confirmed.",
     scope: ["Retail fit-out", "Interior finishes", "Store delivery"],
     coverImage: "assets/optimized/body-shop.webp",
     gallery: [],
