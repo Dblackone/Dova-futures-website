@@ -255,7 +255,7 @@ test("personal digital card exposes working contact and portfolio actions", asyn
     {
       path: "/vollmann/vollmann-akarakiri.vcf",
       type: "text/x-vcard",
-      signature: "BEGIN:VCARD\r\n",
+      signature: "BEGIN:VCARD",
     },
     {
       path: "/vollmann/og-vollmann.png",
