@@ -4,16 +4,16 @@
  */
 const PROJECTS = [
   {
-    id: "body-shop-ikeja",
-    title: "The Body Shop Nigeria — Ikeja City Mall",
+    id: "body-shop-circle-mall",
+    title: "The Body Shop Nigeria — Circle Mall",
     category: "commercial",
-    location: "Ikeja City Mall, Lagos",
+    location: "Circle Mall, Lekki, Lagos",
     services: ["Retail Fit-Out"],
     deliveryType: "Fit-Out Delivery",
     status: "Completed",
     featured: true,
     summary:
-      "A retail fit-out for The Body Shop Nigeria at Ikeja City Mall, delivered with the brand experience and store operation in view.",
+      "A retail fit-out for The Body Shop Nigeria at Circle Mall, Lekki, delivered with the brand experience and store operation in view.",
     scope: ["Retail fit-out", "Interior finishes", "Store delivery"],
     coverImage: "assets/optimized/body-shop.webp",
     gallery: [
@@ -23,16 +23,16 @@ const PROJECTS = [
     ],
   },
   {
-    id: "body-shop-seku-mall",
-    title: "The Body Shop Nigeria — Seku Mall",
+    id: "body-shop-ikeja-city-mall",
+    title: "The Body Shop Nigeria — Ikeja City Mall",
     category: "commercial",
-    location: "Seku Mall, Lekki, Lagos",
+    location: "Ikeja City Mall, Lagos",
     services: ["Retail Fit-Out"],
     deliveryType: "Fit-Out Delivery",
     status: "Completed",
     featured: true,
     summary:
-      "A separate The Body Shop Nigeria retail fit-out at Seku Mall, Lekki. Project-specific photography will be added as it is confirmed.",
+      "A separate The Body Shop Nigeria retail fit-out at Ikeja City Mall. Project-specific photography will be added as it is confirmed.",
     scope: ["Retail fit-out", "Interior finishes", "Store delivery"],
     coverImage: "assets/optimized/body-shop.webp",
     gallery: [],
@@ -56,6 +56,35 @@ const PROJECTS = [
     ],
     coverImage: "assets/optimized/palm-drainage.webp",
     gallery: [],
+  },
+  {
+    id: "oluku-ultra-modern-market",
+    title: "Oluku Ultra Modern Market",
+    category: "infrastructure",
+    location: "Oluku, Benin City, Edo State",
+    services: [
+      "Drainage Design",
+      "Drainage Construction",
+      "Setting-Out & Survey",
+      "Shop Unit Construction",
+    ],
+    deliveryType: "Design + Build",
+    status: "Under Construction",
+    featured: true,
+    summary:
+      "A two-stage market infrastructure project: reinforced drainage design and construction first, followed by setting-out, survey coordination, shop-unit structures and site infrastructure.",
+    scope: [
+      "Reinforced drainage channel design and construction",
+      "Setting-out and survey for shop units",
+      "Shop-unit block structures",
+      "Site infrastructure coordination",
+    ],
+    coverImage: "assets/Project Pictures/Oluku Modern Market/oluku-site-00.jpg",
+    gallery: [
+      "assets/Project Pictures/Oluku Modern Market/oluku-site-06.jpg",
+      "assets/Project Pictures/Oluku Modern Market/oluku-site-07.jpg",
+      "assets/Project Pictures/Oluku Modern Market/oluku-site-08.jpg",
+    ],
   },
   {
     id: "ikotun-6-flat-apartment",

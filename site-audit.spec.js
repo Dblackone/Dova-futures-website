@@ -141,11 +141,11 @@ test("project catalogue filters and opens a direct detail view", async ({
   );
   await expect(page).toHaveURL(/\?project=ikotun-6-flat-apartment$/);
 
-  await page.goto(`${BASE_URL}/?project=body-shop-ikeja`, {
+  await page.goto(`${BASE_URL}/?project=body-shop-circle-mall`, {
     waitUntil: "networkidle",
   });
   await expect(page.locator("#projectDetail")).toContainText(
-    "The Body Shop Nigeria — Ikeja City Mall",
+    "The Body Shop Nigeria — Circle Mall",
   );
   await expect(page.locator("#projectDetail .project-gallery img")).toHaveCount(
     3,
