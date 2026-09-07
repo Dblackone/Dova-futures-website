@@ -1,55 +1,41 @@
 # Dova Futures website
 
-The production marketing website for DOVA Futures Limited. It uses a small
-Express application to serve the responsive HTML/CSS/JavaScript frontend and
-deliver project enquiries through SMTP.
+The production marketing website for DOVA Futures Limited. It is a static site
+with a Cloudflare Worker contact API and Resend email delivery.
 
 ## Architecture
 
-- `index.html` — the public website and client-side navigation
-- `vollmann/` — Vollmann Akarakiri's shareable digital card, vCard and portfolio links
-- `assets/` — logos, project imagery, icons and portfolio documents
-- `data/` — portfolio data used by the website
-- `server.js` — optional Express server for local hosting and contact email
-- `CNAME` — custom domain for GitHub Pages (`dovafutures.com`)
-- `index.html` — public website and client-side navigation
-- `assets/optimized/` — compressed WebP images used by the website
-- `assets/` — original project media and company documents
-- `server.js` — static delivery, health check, and secured contact API
-- `server.test.js` — backend unit and integration tests
-- `site-audit.spec.js` — responsive browser and performance regression tests
-- `render.yaml` — Render web-service infrastructure configuration
-- `DEPLOYMENT.md` — production deployment, DNS, email, and rollback runbook
+- `index.html`, `hallmark.css`, and `tokens.css` — public site
+- `assets/`, `data/`, and `vollmann/` — public images, portfolio media, and digital card
+- `worker.mjs` — contact API, validation, security responses, and Resend delivery
+- `scripts/build-static-assets.mjs` — creates the safe deploy-only `dist/` directory
+- `wrangler.toml` — Cloudflare Worker configuration (no secrets)
+- `CNAME` — retained only as a record of the prior GitHub Pages configuration
+- `DEPLOYMENT.md` — DNS, Resend, and production runbook
 
-The frontend and API intentionally run on the same origin. This keeps the
-contact form simple, avoids cross-origin configuration, and lets one Render
-service own TLS, security headers, compression, and caching.
+Only files copied into `dist/` become public assets. The Worker source,
+configuration, tests, and local environment files are excluded from deployment.
 
 ## Local development
 
 ```bash
 npm ci
-cp .env.example .env
-npm start
+npm run dev -- --ip 127.0.0.1 --port 3000
 ```
 
-Open `http://localhost:3000`. SMTP credentials are only required to deliver a
-real contact message. Never commit `.env` or credentials.
+Open `http://127.0.0.1:3000`. A real contact email requires the `RESEND_API_KEY`
+secret to be configured in Cloudflare; do not put it in this repository.
 
 ## Quality checks
 
 ```bash
 npm test
-npm audit
+npm audit --audit-level=high
 npm run format:check
 ```
 
-The browser suite checks seven site views at mobile, tablet, and desktop
-widths. It also verifies image loading, the contact API contract, source-file
-isolation, and a 4 MB image-transfer budget.
+## Deploy
 
-## Deployment
-
-Production is designed to run as one Render web service. Render waits for the
-GitHub validation workflow to pass before deploying. Follow `DEPLOYMENT.md`
-for the SMTP variables and the controlled Namecheap DNS migration.
+Follow [DEPLOYMENT.md](DEPLOYMENT.md). The deployment requires access to the
+Cloudflare account, a verified Resend sending domain, and the Namecheap domain
+settings.

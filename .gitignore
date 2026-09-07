@@ -8,3 +8,5 @@ npm-debug.log*
 .hallmark/
 playwright-report/
 test-results/
+dist/
+.wrangler/

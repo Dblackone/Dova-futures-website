@@ -1,11 +1,11 @@
-const { defineConfig } = require('@playwright/test');
+const { defineConfig } = require("@playwright/test");
 
 module.exports = defineConfig({
-  testMatch: 'site-audit.spec.js',
+  testMatch: "site-audit.spec.js",
   webServer: {
-    command: 'npm start',
-    url: 'http://127.0.0.1:3000',
+    command: "npm run dev -- --ip 127.0.0.1 --port 3000",
+    url: "http://127.0.0.1:3000",
     reuseExistingServer: !process.env.CI,
-    timeout: 120000
-  }
+    timeout: 120000,
+  },
 });

@@ -1,100 +1,69 @@
-# Production deployment and domain runbook
+# Cloudflare Workers production runbook
 
-## Target architecture
+## Architecture
 
-`dovafutures.com` and `www.dovafutures.com` point to one Render Node web
-service. Express serves the frontend and the same-origin `/api/contact`
-endpoint. Render terminates HTTPS and performs health checks at `/api/health`.
+Cloudflare Workers serves the static website from `dist/` and runs the same-origin
+`/api/contact` endpoint. The endpoint validates requests, rejects the honeypot,
+applies a per-isolate rate limit, and sends accepted enquiries through Resend's
+HTTPS API. No SMTP server, Node server, or Render service is used in production.
 
-This replaces GitHub Pages as the production host because GitHub Pages cannot
-execute the contact backend.
+## 1. Create and configure the accounts
 
-## 1. Deploy the Render service
+1. Create a Cloudflare account and add `dovafutures.com` as a zone.
+2. Before changing nameservers at Namecheap, copy every current DNS record into
+   Cloudflare DNS, especially MX, SPF, DKIM, and any mail-related records. This
+   avoids interrupting company email.
+3. Change the Namecheap nameservers to the two Cloudflare-assigned nameservers
+   and wait until the zone becomes active. Workers custom domains require a
+   Cloudflare-managed zone.
+4. Create a Resend account, add and verify `dovafutures.com`, and publish only
+   the exact DNS records Resend provides. Do not replace existing email records
+   by guesswork.
 
-1. In Render, create a Blueprint from this GitHub repository and review
-   `render.yaml`.
-2. Keep the production `starter` plan for no idle spin-down. A free plan can be
-   used for staging, but it can make the first request after inactivity slow.
-3. Set these secret environment variables in Render:
-   - `SMTP_HOST`
-   - `SMTP_USER`
-   - `SMTP_PASS`
-4. Confirm `SMTP_PORT` and `SMTP_SECURE` match the email provider. Typical
-   STARTTLS uses port `587` with `SMTP_SECURE=false`; implicit TLS commonly
-   uses port `465` with `SMTP_SECURE=true`.
-5. Wait for the GitHub checks and Render health check to pass.
-6. Test the Render-provided `onrender.com` URL, including one controlled email
-   enquiry, before changing DNS.
+## 2. Deploy the Worker
 
-## 2. Add the domains in Render
-
-Add `dovafutures.com` under the service's Custom Domains settings. Render will
-also add `www.dovafutures.com` and redirect it to the root domain. Do not change
-Namecheap DNS until the service itself is healthy.
-
-## 3. Migrate Namecheap DNS
-
-Current production points to GitHub Pages. In Namecheap Advanced DNS:
-
-1. Record or screenshot the existing website records for rollback.
-2. Remove the four GitHub Pages `A` records for host `@`:
-   - `185.199.108.153`
-   - `185.199.109.153`
-   - `185.199.110.153`
-   - `185.199.111.153`
-3. Add an `A` record for host `@` pointing to Render's load balancer:
-   `216.24.57.1`.
-4. Replace the `www` CNAME target `dblackone.github.io` with the exact Render
-   service hostname shown in the dashboard, such as
-   `dova-futures-website.onrender.com`.
-5. Remove website `AAAA` records if any exist. Do not modify MX or other email
-   records during the website cutover.
-6. Use the lowest available TTL during migration, save, then click **Verify**
-   in Render.
-7. Confirm both domain variants use HTTPS, `www` redirects to the root, the
-   health endpoint returns `{"status":"ok"}`, and the contact form delivers.
-
-## 4. Email-domain checks
-
-The domain currently has an MX record, but the September 6, 2026 DNS audit did
-not find SPF or DMARC TXT records and did not find a common DKIM selector. This
-does not block the website deployment, but it can reduce deliverability for
-messages sent as `no-reply@dovafutures.com`.
-
-Before production email delivery is considered complete:
-
-1. Confirm the actual mail provider for `dovafutures.com`.
-2. Publish the provider's SPF record.
-3. Enable DKIM in the provider and publish its exact selector record.
-4. Start DMARC in monitoring mode (`p=none`) with a reporting mailbox, review
-   reports, then strengthen the policy after legitimate senders are aligned.
-5. Make sure `CONTACT_FROM_EMAIL` is a sender the SMTP provider authorizes.
-
-Never guess or combine email records. Use the exact values supplied by the
-mail provider so existing company email is not interrupted.
-
-## Verification
-
-Run locally before release:
+Run locally first:
 
 ```bash
 npm ci
-npm audit
 npm test
+npm run format:check
+npm run build
+npx wrangler login
+npx wrangler secret put RESEND_API_KEY
+npm run deploy
 ```
 
-After release, verify:
+Enter the Resend API key only at the Wrangler secret prompt. It must never be
+committed or placed in `wrangler.toml`.
 
-- `https://dovafutures.com/`
-- `https://www.dovafutures.com/`
-- `https://dovafutures.com/api/health`
-- one contact-form email and one WhatsApp enquiry
-- mobile navigation and project filters
-- browser security headers and certificate validity
+After the first deploy, add `dovafutures.com` and `www.dovafutures.com` as
+custom domains in the Cloudflare Worker dashboard. Make `dovafutures.com` the
+canonical domain and redirect `www` to it in Cloudflare.
+
+## 3. Verify before and after cutover
+
+1. Test the generated `workers.dev` URL: website, `/api/health`, a valid contact
+   enquiry, a malformed enquiry, and the Vollmann card.
+2. Confirm Resend reports the test email as accepted and reply-to works.
+3. Add the custom domains only once the Worker is healthy, then verify:
+   - `https://dovafutures.com/`
+   - `https://www.dovafutures.com/` redirects to the canonical domain
+   - `https://dovafutures.com/api/health` returns `{ "status": "ok" }`
+   - one real contact-form delivery
+4. Keep the existing GitHub Pages DNS record values documented until the new
+   domain has been stable for 48 hours.
+
+## Security operations
+
+The Worker provides input validation, source isolation, same-origin checks,
+honeypot protection, and a lightweight per-isolate rate limit. Add a Cloudflare
+WAF custom rule or Turnstile challenge if spam becomes persistent: in-memory
+limits intentionally do not coordinate across all global Worker isolates.
 
 ## Rollback
 
-If Render fails after DNS cutover, restore the four previous GitHub Pages `A`
-records and the `www` CNAME target `dblackone.github.io`. Keep the previous
-GitHub Pages deployment available until Render and SMTP have been stable for
-at least 48 hours.
+If the Worker deployment fails, remove its custom-domain routes in Cloudflare
+and restore the prior GitHub Pages DNS records only after confirming the old
+site is still available. Do not alter MX or email-authentication records during
+the web rollback.

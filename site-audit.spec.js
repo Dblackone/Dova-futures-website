@@ -142,6 +142,11 @@ test("contact form uses the backend contract and reports success", async ({
 test("backend health, validation, and source-file isolation are correct", async ({
   request,
 }) => {
+  const homepage = await request.get(BASE_URL);
+  expect(homepage.headers()["content-security-policy"]).toContain(
+    "default-src 'self'",
+  );
+
   const health = await request.get(`${BASE_URL}/api/health`);
   expect(health.status()).toBe(200);
   expect(await health.json()).toEqual({ status: "ok" });
@@ -150,9 +155,9 @@ test("backend health, validation, and source-file isolation are correct", async 
   const invalid = await request.post(`${BASE_URL}/api/contact`, { data: {} });
   expect(invalid.status()).toBe(400);
 
-  const sourceAttempt = await request.get(`${BASE_URL}/server.js`);
+  const sourceAttempt = await request.get(`${BASE_URL}/worker.mjs`);
   expect(sourceAttempt.status()).toBe(404);
-  expect(await sourceAttempt.text()).not.toContain("createMailTransport");
+  expect(await sourceAttempt.text()).not.toContain("deliverContactEmail");
 });
 
 test("personal digital card exposes working contact and portfolio actions", async ({
