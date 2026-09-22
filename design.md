@@ -22,6 +22,11 @@ Editorial: architectural catalogue, working archive, and field journal.
 - Rules: quiet warm-grey hairlines; no floating card chrome or decorative gradients.
 
 Canonical values live in `tokens.css`.
+The shared company logo pack is `assets/logo/brand-pack-2026-09-22/`.
+Use `02-horizontal-cream-on-green.png` for the current dark site header/footer
+and `06-symbol-cream-on-green.png` for square browser/app icon artwork. Select
+other placements through `logo-manifest.json`; all supplied PNGs are opaque,
+and the vector master for these new variations is still pending.
 
 ## Typography
 

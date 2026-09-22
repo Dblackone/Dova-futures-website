@@ -31,11 +31,14 @@ npm run format:check
 npm run build
 npx wrangler login
 npx wrangler secret put RESEND_API_KEY
+npx wrangler d1 migrations apply dova-enquiries --remote
 npm run deploy
 ```
 
 Enter the Resend API key only at the Wrangler secret prompt. It must never be
-committed or placed in `wrangler.toml`.
+committed or placed in `wrangler.toml`. Apply pending D1 migrations before the
+Worker deploy so the enquiry and readiness endpoints have their required
+tables.
 
 After the first deploy, add `dovafutures.com` and `www.dovafutures.com` as
 custom domains in the Cloudflare Worker dashboard. Make `dovafutures.com` the
@@ -43,10 +46,11 @@ canonical domain and redirect `www` to it in Cloudflare.
 
 ## 3. Verify before and after cutover
 
-1. Test the generated `workers.dev` URL: website, `/api/health`, a valid contact
-   enquiry, a malformed enquiry, and the Vollmann card.
+1. Test the generated `workers.dev` URL: website, `/api/health`, `/api/ready`,
+   `robots.txt`, `sitemap.xml`, a malformed enquiry, and the Vollmann card.
 2. Confirm Resend reports the test email as accepted and reply-to works.
-3. Add the custom domains only once the Worker is healthy, then verify:
+3. The current production Worker already serves the company domain. After
+   deployment, verify the existing custom domains and the canonical redirect:
    - `https://dovafutures.com/`
    - `https://www.dovafutures.com/` redirects to the canonical domain
    - `https://dovafutures.com/api/health` returns `{ "status": "ok" }`

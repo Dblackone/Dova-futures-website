@@ -1,0 +1,317 @@
+[
+  {
+    "id": "body-shop-nigeria",
+    "title": "The Body Shop Nigeria",
+    "category": "commercial",
+    "location": "Ikeja City Mall & Circle Mall, Lekki, Lagos",
+    "services": [
+      "Retail Fit-Out"
+    ],
+    "deliveryType": "Fit-Out Delivery",
+    "status": "Completed",
+    "featured": true,
+    "summary": "Retail fit-out delivery for The Body Shop Nigeria at two locations: Ikeja City Mall and Circle Mall, Lekki. Site coordination and construction translated the brand’s supplied international design standards into opening-ready stores.",
+    "scope": [
+      "Coordination of supplied brand design and standards",
+      "Partitions, flooring, ceilings and fit-out trades",
+      "Counter, shelving and product-display joinery",
+      "Feature mural and storefront signage installation"
+    ],
+    "coverImage": "assets/optimized/body-shop.webp",
+    "gallery": [
+      "assets/Project Pictures/Body Shop Outlets/body-shop-retail-floor.jpeg",
+      "assets/Project Pictures/Body Shop Outlets/body-shop-mural-display.jpeg",
+      "assets/Project Pictures/Body Shop Outlets/body-shop-counter-display.jpeg"
+    ]
+  },
+  {
+    "id": "ngo-complex-landscape",
+    "title": "NGO Complex Landscape Development",
+    "category": "landscape",
+    "location": "Owo, Ondo State",
+    "services": [
+      "Landscape Design",
+      "Landscape Implementation"
+    ],
+    "deliveryType": "Design + Implementation",
+    "status": "Completed",
+    "featured": true,
+    "summary": "Landscape design and implementation for an existing charity organisation complex in Owo.",
+    "scope": [
+      "Site assessment",
+      "Landscape concept",
+      "Softscape and hardscape planning",
+      "Landscape implementation"
+    ],
+    "coverImage": "assets/optimized/palm-drainage.webp",
+    "gallery": []
+  },
+  {
+    "id": "oluku-ultra-modern-market",
+    "title": "Oluku Ultra Modern Market",
+    "category": "infrastructure",
+    "location": "Oluku, Benin City, Edo State",
+    "services": [
+      "Drainage Design",
+      "Drainage Construction",
+      "Setting-Out & Survey",
+      "Shop Unit Construction"
+    ],
+    "deliveryType": "Design + Build",
+    "status": "Under Construction",
+    "featured": true,
+    "summary": "A two-stage market infrastructure project: reinforced drainage design and construction first, followed by setting-out, survey coordination, shop-unit structures and site infrastructure.",
+    "scope": [
+      "Reinforced drainage channel design and construction",
+      "Setting-out and survey for shop units",
+      "Shop-unit block structures",
+      "Site infrastructure coordination"
+    ],
+    "coverImage": "assets/Project Pictures/Oluku Modern Market/oluku-site-00.jpg",
+    "gallery": [
+      "assets/Project Pictures/Oluku Modern Market/oluku-site-06.jpg",
+      "assets/Project Pictures/Oluku Modern Market/oluku-site-07.jpg",
+      "assets/Project Pictures/Oluku Modern Market/oluku-site-08.jpg"
+    ]
+  },
+  {
+    "id": "ikotun-6-flat-apartment",
+    "title": "Ikotun 6-Flat Apartment",
+    "category": "residential",
+    "location": "Ikotun, Lagos, Nigeria",
+    "services": [
+      "Architectural Design",
+      "Construction"
+    ],
+    "deliveryType": "Design + Build",
+    "status": "Carcass Completed",
+    "featured": true,
+    "summary": "A six-unit residential apartment development delivered from initial design development through construction to carcass completion.",
+    "scope": [
+      "Concept and design development",
+      "Setting out",
+      "Structural works",
+      "Blockwork",
+      "Roofing",
+      "Carcass delivery"
+    ],
+    "coverImage": "assets/optimized/ikotun-apartments.webp",
+    "gallery": [
+      "assets/Project Pictures/Ikotun Apartments/ikotun-render.png",
+      "assets/Project Pictures/Ikotun Apartments/ikotun-structure.jpg",
+      "assets/Project Pictures/Ikotun Apartments/ikotun-progress.jpg",
+      "assets/Project Pictures/Ikotun Apartments/ikotun-facade.jpg"
+    ]
+  },
+  {
+    "id": "ikeja-conference-room",
+    "title": "Ikeja Conference Room Design",
+    "category": "interiors",
+    "location": "Ikeja, Lagos",
+    "services": [
+      "Interior Design",
+      "Concept Development"
+    ],
+    "deliveryType": "Design Only",
+    "status": "Design Proposal",
+    "featured": false,
+    "summary": "An interior design concept for a conference room in Ikeja; this was not a Dova construction or fit-out delivery.",
+    "scope": [
+      "Layout concept",
+      "Design intent",
+      "Material proposal",
+      "Visualisation"
+    ],
+    "coverImage": "assets/optimized/conference-room.webp",
+    "gallery": []
+  },
+  {
+    "id": "ado-ekiti-hall-of-worship",
+    "title": "Ado-Ekiti Hall of Worship",
+    "category": "commercial",
+    "location": "Ado-Ekiti, Ekiti State",
+    "services": [
+      "Architectural Redesign",
+      "Landscape Design",
+      "Construction Documentation"
+    ],
+    "deliveryType": "Redesign + Documentation",
+    "status": "Design proposal",
+    "featured": false,
+    "summary": "Redesign and modernization of an existing Anglican worship facility in Ado-Ekiti, combining architectural and landscape proposals. Completion of construction has not been verified.",
+    "scope": [
+      "Architectural redesign",
+      "Landscape and site circulation planning",
+      "Facade enhancement",
+      "Construction and approval documentation"
+    ],
+    "coverImage": "assets/optimized/ado-hall.webp",
+    "gallery": [
+      "assets/projects/ado-hall/before.jpg",
+      "assets/projects/ado-hall/after.png"
+    ]
+  },
+  {
+    "id": "owo-mini-estate-event-centre",
+    "title": "Owo Mini Estate & Event Centre",
+    "category": "residential",
+    "location": "Owo, Ondo State",
+    "services": [
+      "Architectural Design",
+      "Masterplanning"
+    ],
+    "deliveryType": "Design Only",
+    "status": "Design Concept",
+    "featured": false,
+    "summary": "Design of a mini residential estate and event centre, including the overall site concept and associated architectural planning.",
+    "scope": [
+      "Masterplanning",
+      "Architectural design",
+      "Site development concept"
+    ],
+    "coverImage": "assets/optimized/estate-aerial.webp",
+    "gallery": []
+  },
+  {
+    "id": "crown-estate-ajah",
+    "title": "Crown Estate — Residential Interior",
+    "category": "interiors",
+    "location": "Crown Estate, Ajah–Lekki Expressway, Lagos",
+    "services": [
+      "Interior Design",
+      "Interior Delivery"
+    ],
+    "deliveryType": "Interior Delivery",
+    "status": "Interior Fit-Out",
+    "featured": false,
+    "summary": "Residential interior fit-out at Crown Estate, Ajah, with a furnished lounge and living space documented in the project photographs.",
+    "scope": [
+      "Residential interior fit-out",
+      "Lounge and living-space finishes"
+    ],
+    "coverImage": "assets/Project Pictures/Crown Estate Ajah Interior/crown-estate-interior-01.jpg",
+    "gallery": [
+      "assets/Project Pictures/Crown Estate Ajah Interior/crown-estate-interior-01.jpg",
+      "assets/Project Pictures/Crown Estate Ajah Interior/crown-estate-interior-02.jpg",
+      "assets/Project Pictures/Crown Estate Ajah Interior/crown-estate-interior-03.jpg",
+      "assets/Project Pictures/Crown Estate Ajah Interior/crown-estate-interior-04.jpg",
+      "assets/Project Pictures/Crown Estate Ajah Interior/crown-estate-interior-05.jpg"
+    ],
+    "published": true
+  },
+  {
+    "id": "interior-concept-development",
+    "title": "Ikeja Living & Dining Interior Concept",
+    "category": "interiors",
+    "location": "Ikeja, Lagos",
+    "services": [
+      "Interior Design",
+      "Concept Development"
+    ],
+    "deliveryType": "Design Only",
+    "status": "Design Concept",
+    "featured": false,
+    "summary": "Residential living and dining design development and visualization, created to communicate the proposed layout, finishes and joinery before implementation.",
+    "scope": [
+      "Space planning",
+      "Design concept",
+      "Material direction"
+    ],
+    "coverImage": "assets/Project Pictures/Interior Design Projects/living-dining-render-perspective-01.png",
+    "gallery": [
+      "assets/Project Pictures/Interior Design Projects/living-dining-render-perspective-02.png"
+    ],
+    "captions": [
+      "Living and dining concept visualization"
+    ]
+  },
+  {
+    "id": "alcove-homes-yaba",
+    "title": "Alcove Homes — Residential Interior",
+    "category": "interiors",
+    "location": "Yaba, Lagos",
+    "services": [
+      "Residential Interior Design"
+    ],
+    "deliveryType": "Design + Fit-Out",
+    "status": "Completed",
+    "featured": true,
+    "summary": "A residential interior in Yaba, Lagos, delivered from concept and working drawings through furniture fabrication and on-site installation in approximately six weeks.",
+    "scope": [
+      "Interior concept and client sign-off",
+      "Detailed joinery and fit-out drawings",
+      "Furniture fabrication coordination",
+      "On-site installation and handover"
+    ],
+    "coverImage": "assets/Project Pictures/Alcove Home Interior/alcove-homes-02.jpg",
+    "gallery": [
+      "assets/Project Pictures/Alcove Home Interior/alcove-homes-01.jpg",
+      "assets/Project Pictures/Alcove Home Interior/alcove-homes-02.jpg",
+      "assets/Project Pictures/Alcove Home Interior/alcove-homes-03.jpg",
+      "assets/Project Pictures/Alcove Home Interior/alcove-homes-04.jpg",
+      "assets/Project Pictures/Alcove Home Interior/alcove-homes-05.jpg",
+      "assets/Project Pictures/Alcove Home Interior/alcove-homes-06.jpg",
+      "assets/Project Pictures/Alcove Home Interior/alcove-homes-07.jpg",
+      "assets/Project Pictures/Alcove Home Interior/alcove-homes-08.jpg",
+      "assets/Project Pictures/Alcove Home Interior/alcove-homes-09.jpg",
+      "assets/Project Pictures/Alcove Home Interior/alcove-homes-10.jpg"
+    ]
+  },
+  {
+    "id": "sapele-road-residential-interiors",
+    "title": "Sapele Road Residential Interiors",
+    "category": "interiors",
+    "location": "Sapele Road, Nigeria",
+    "services": [
+      "Interior Delivery",
+      "Exterior Development",
+      "Landscaping"
+    ],
+    "deliveryType": "Interior + Exterior Delivery",
+    "status": "Completed",
+    "featured": true,
+    "summary": "Two residential apartment commissions: one interior transformation from tiling through furniture, and one interior, exterior and landscape development.",
+    "scope": [
+      "Residence A: tiling, finishes and furniture",
+      "Residence B: interior, exterior and landscape development"
+    ],
+    "coverImage": "assets/Project Pictures/Sapele Road Project/sapele-road-02.jpg",
+    "gallery": [
+      "assets/Project Pictures/Sapele Road Project/sapele-road-01.jpg",
+      "assets/Project Pictures/Sapele Road Project/sapele-road-02.jpg",
+      "assets/Project Pictures/Sapele Road Project/sapele-road-03.jpg",
+      "assets/Project Pictures/Sapele Road Project/sapele-road-04.jpg",
+      "assets/Project Pictures/Sapele Road Project/sapele-road-05.jpg"
+    ],
+    "captions": [
+      "Kitchen joinery during fit-out",
+      "Media wall during installation",
+      "Wardrobe joinery",
+      "Vanity and bathroom cabinetry",
+      "Living-area joinery"
+    ]
+  },
+  {
+    "id": "uselu-family-house",
+    "title": "4-Bedroom Family House, Uselu",
+    "category": "residential",
+    "location": "Uselu, Benin City, Edo State",
+    "services": [
+      "Architectural Concept",
+      "Visualization"
+    ],
+    "deliveryType": "Design Only",
+    "status": "Design Concept",
+    "featured": false,
+    "summary": "A four-bedroom family residence concept in Uselu, documented through street-view, night-elevation and material studies. Images are architectural visualizations.",
+    "scope": [
+      "Residential concept design",
+      "Street and night-view visualization",
+      "Material studies"
+    ],
+    "coverImage": "assets/Project Pictures/Uselu Family house/Usele Hero 1.png",
+    "gallery": [
+      "assets/Project Pictures/Uselu Family house/USELU - NIGHT VIEW.png"
+    ]
+  }
+]
