@@ -4,7 +4,7 @@
 the website, a PDF, a template: logos, project photography, icons, portfolio
 documents.
 
-**Belongs here:** brand logo lockups (`logo/`), website portfolio images
+**Belongs here:** brand logo lockups (`logo/`; the active placement pack is `logo/brand-pack-2026-09-22/`), website portfolio images
 (`projects/`), UI icons (`widgets/icons/`), public marketing PDFs, and (for
 now) the company project-photo archive (`Project Pictures/`).
 

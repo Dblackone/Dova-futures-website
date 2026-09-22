@@ -5,7 +5,7 @@
   "description": "Dova Futures Developers website with contact backend",
   "main": "worker.mjs",
   "engines": {
-    "node": ">=20"
+    "node": ">=24"
   },
   "scripts": {
     "build": "node scripts/build-static-assets.mjs",
@@ -17,10 +17,11 @@
     "test:unit": "node --test worker.test.mjs",
     "test:e2e": "playwright test"
   },
-  "dependencies": {},
   "devDependencies": {
     "@playwright/test": "^1.63.0",
+    "axe-core": "^4.13.0",
     "prettier": "^3.9.6",
+    "sharp": "^0.35.4",
     "wrangler": "^4.38.0"
   }
 }

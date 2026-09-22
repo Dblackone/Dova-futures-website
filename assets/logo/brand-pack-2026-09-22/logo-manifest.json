@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "1.0",
+  "brand": "DOVA FUTURES LIMITED",
+  "source": "Principal-approved working logo pack, 2026-09-22",
+  "assetFormat": "RGB PNG with opaque background",
+  "vectorMaster": "pending",
+  "selectionRule": "Choose by surface and placement; preserve aspect ratio and clear space.",
+  "variants": [
+    {
+      "id": "primary-horizontal-light",
+      "file": "01-horizontal-green-on-white.png",
+      "layout": "horizontal",
+      "background": "white",
+      "foreground": "forest-green",
+      "recommendedUse": ["document header", "light website header", "presentation", "business card", "wide banner"],
+      "status": "preferred"
+    },
+    {
+      "id": "primary-horizontal-dark",
+      "file": "02-horizontal-cream-on-green.png",
+      "layout": "horizontal",
+      "background": "forest-green",
+      "foreground": "warm-cream",
+      "recommendedUse": ["dark website header", "green title panel", "presentation cover", "social banner"],
+      "status": "preferred"
+    },
+    {
+      "id": "stacked-full-name-light",
+      "file": "03-square-stacked-green-on-white.png",
+      "layout": "stacked",
+      "background": "white",
+      "foreground": "forest-green",
+      "recommendedUse": ["square profile", "directory tile", "square advert"],
+      "status": "review",
+      "note": "Arrangement is correct, but the supplied review raster has a faint line above the right tower. Use the dark stacked version for issue until this file is cleaned."
+    },
+    {
+      "id": "stacked-full-name-dark",
+      "file": "04-square-stacked-cream-on-green.png",
+      "layout": "stacked",
+      "background": "forest-green",
+      "foreground": "warm-cream",
+      "recommendedUse": ["square dark profile", "green presentation tile", "square social post"],
+      "status": "preferred"
+    },
+    {
+      "id": "symbol-light",
+      "file": "05-symbol-green-on-white.png",
+      "layout": "symbol-only",
+      "background": "white",
+      "foreground": "forest-green",
+      "recommendedUse": ["small light avatar", "compact marker", "favicon source artwork"],
+      "status": "preferred"
+    },
+    {
+      "id": "symbol-dark",
+      "file": "06-symbol-cream-on-green.png",
+      "layout": "symbol-only",
+      "background": "forest-green",
+      "foreground": "warm-cream",
+      "recommendedUse": ["small dark avatar", "app icon source artwork", "dark brand tile"],
+      "status": "preferred"
+    },
+    {
+      "id": "wordmark-light",
+      "file": "07-wordmark-green-on-white.png",
+      "layout": "wordmark-only",
+      "background": "white",
+      "foreground": "forest-green",
+      "recommendedUse": ["narrow name-led placement", "secondary signature"],
+      "status": "preferred"
+    },
+    {
+      "id": "monochrome-light",
+      "file": "08-horizontal-black-on-white.png",
+      "layout": "horizontal",
+      "background": "white",
+      "foreground": "black",
+      "recommendedUse": ["monochrome printing", "single-colour reference"],
+      "status": "preferred"
+    }
+  ],
+  "platformNotes": {
+    "googleBusinessProfile": "Use a square full-name or symbol variant; Google recommends 720x720 PNG/JPG and a 250x250 minimum.",
+    "googleAds": "Use a square variant; Google recommends 1200x1200 and keeping important content in the central 80%.",
+    "googlePerformanceMax": "Use the horizontal variant inside a correctly sized 4:1 export canvas; do not stretch the supplied 3:1 raster.",
+    "googleSearchFavicon": "Use a square symbol source and test a dedicated export larger than 48x48; upload/deployment is separate from this asset pack."
+  },
+  "restrictions": [
+    "Do not stretch, rotate, mirror, crop, recolour or place on a noisy background.",
+    "These PNGs are opaque and are not transparent overlays.",
+    "Do not use a full-name lockup at favicon size; use the symbol where the name would be unreadable.",
+    "Large-format fabrication, embroidery, engraving and strict colour workflows require a vector master and supplier proof."
+  ]
+}

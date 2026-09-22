@@ -6,7 +6,19 @@ workers_dev = true
 [assets]
 directory = "./dist"
 binding = "ASSETS"
-run_worker_first = ["/api/*"]
+run_worker_first = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "dova-enquiries"
+database_id = "c2f64de2-8748-4d2f-b3e6-9668133cd1c8"
+migrations_dir = "migrations"
+
+[triggers]
+crons = ["*/15 * * * *"]
+
+[observability]
+enabled = true
 
 [vars]
 CONTACT_TO_EMAIL = "info@dovafutures.com"
